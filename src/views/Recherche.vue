@@ -13,7 +13,8 @@
     <md-table>
       <md-table-row v-for="unFilm in films" v-bind:key="unFilm.key">
         <md-table-cell>{{unFilm.title}}</md-table-cell>
-        <md-table-cell> <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +unFilm.poster_path" width='100px'></md-table-cell>
+        <md-table-cell v-if="unFilm.poster_path!=null">
+          <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +unFilm.poster_path" width='100px'></md-table-cell>
         <md-table-cell><md-button v-on:click="voirDetails(unFilm)"><md-icon>visibility</md-icon></md-button></md-table-cell>
       </md-table-row>
     </md-table>

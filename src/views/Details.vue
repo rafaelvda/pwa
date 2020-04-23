@@ -1,5 +1,5 @@
 <template>
-    <div class="details">
+    <div class="details" v-if="estPres">
         <h1>Details du film</h1>
         <div class="content">
             <md-steppers md-alternative>
@@ -14,11 +14,11 @@
                 <md-table-cell>{{unGenre.name}}</md-table-cell>
             </md-table-row>
             </md-table>
-            <md-card-media alt="image de devant">
-                <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +detailFilm.poster_path" width='100px' alt="Pas beau">
+            <md-card-media alt="image de devant" >
+                <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +detailFilm.poster_path" width='100px' alt="Pas beau" >
             </md-card-media>
             <md-card-media alt="image de derrière">
-                <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +detailFilm.backdrop_path" width='100px'  alt="Pas beau">
+                <img  v-bind:src="'http://image.tmdb.org/t/p/w500/' +detailFilm.backdrop_path" width='100px'  alt="Pas beau">
             </md-card-media>
                 </md-step>
                 <md-step id="second" md-label="Suite">
@@ -45,6 +45,7 @@
         api_key =  '4ff72c4b1b8d4ccf3356dd8ef034a6ce';
         genres = [];
         detailFilm= null ;
+        estPres=false ;
         compagnies = [] ;
 
         created() {
@@ -52,19 +53,20 @@
                 id: this.$route.query.id,
                 titre: this.$route.query.titre
             };
-
+            this.cherchedetail()
         }
 
         mounted(){
-            this.search()
+
         }
 
-        async search() {
+        async cherchedetail() {
             //const response = await axios.get(this.baseUrl + `/search.json?title=${this.query}`);
             const response = await axios.get(this.baseUrl + this.film.id + '?api_key='+this.api_key);
             this.genres = await response.data.genres;
             this.detailFilm = await response.data ;
-            console.log(this.detailFilm)
+            console.log(this.detailFilm) ;
+            this.estPres = true ;
         }
 
     }

@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": "/enc-pwa/dist/",
+    "baseUrl": ".",
     "types": [
       "webpack-env"
     ],
