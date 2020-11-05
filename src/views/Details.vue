@@ -42,7 +42,7 @@
         film: any;
         baseUrl = 'https://api.themoviedb.org/3/movie/';
         query = '';
-        api_key =  '4ff72c4b1b8d4ccf3356dd8ef034a6ce';
+        api_key =  '22ed7af5665e4535d05d8796c837c460';
         genres = [];
         detailFilm= null ;
         estPres=false ;
