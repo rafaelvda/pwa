@@ -7,29 +7,29 @@
             <md-card class="details-card">
                 <h3>{{film.titre}}</h3>
                 <h3>{{film.id}}</h3>
-
+                {{ detailFilm.release_date}}
             </md-card>
             <md-table>
             <md-table-row v-for="unGenre in genres" v-bind:key="unGenre.key">
                 <md-table-cell>{{unGenre.name}}</md-table-cell>
             </md-table-row>
             </md-table>
-            <md-card-media alt="image de devant" >
+           <md-card-media alt="image de devant" >
                 <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +detailFilm.poster_path" width='100px' alt="Pas beau" >
             </md-card-media>
             <md-card-media alt="image de derrière">
                 <img  v-bind:src="'http://image.tmdb.org/t/p/w500/' +detailFilm.backdrop_path" width='100px'  alt="Pas beau">
             </md-card-media>
                 </md-step>
+              <md-icon>details</md-icon>
                 <md-step id="second" md-label="Suite">
                     <md-card class="details-card">
                         {{ detailFilm.overview}}
-
+                        {{ creditFilm.cast}}
                     </md-card>
                 </md-step>
             </md-steppers>
         </div>
-
     </div>
 </template>
 
@@ -47,6 +47,7 @@
         detailFilm= null ;
         estPres=false ;
         compagnies = [] ;
+        creditFilm = [];
 
         created() {
             this.film = {
@@ -65,6 +66,11 @@
             const response = await axios.get(this.baseUrl + this.film.id + '?api_key='+this.api_key);
             this.genres = await response.data.genres;
             this.detailFilm = await response.data ;
+
+            //pour le cast
+            const num2 = await axios.get(this.baseUrl + this.film.id + '/credits?api_key='+this.api_key);
+            this.creditFilm = await num2.data ;
+
             console.log(this.detailFilm) ;
             this.estPres = true ;
         }

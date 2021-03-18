@@ -1,6 +1,6 @@
 <template>
     <div class="details">
-        <h1>Details du film</h1>
+        <h1>Detail du film</h1>
         <div class= "content">
                 <md-steppers>
                     <md-step id="first" md-label="Debut">

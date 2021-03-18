@@ -1,6 +1,6 @@
 <template>
     <div class="details">
-        <h1>Details du film</h1>
+        <h1>Detail du film</h1>
         <div class="content">
             <md-card class="details-card">
                 <h3>{{film.titre}}</h3>
