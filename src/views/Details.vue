@@ -22,12 +22,18 @@
             </md-card-media>
                 </md-step>
               <md-icon>details</md-icon>
+
                 <md-step id="second" md-label="Suite">
                     <md-card class="details-card">
                         {{ detailFilm.overview}}
                         {{ creditFilm.cast}}
                     </md-card>
                 </md-step>
+
+              <md-step id="third" md-label="Cast">
+
+              </md-step>
+
             </md-steppers>
         </div>
     </div>
@@ -58,7 +64,6 @@
         }
 
         mounted(){
-
         }
 
         async cherchedetail() {

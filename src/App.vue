@@ -8,6 +8,7 @@
         <md-button md-menu-trigger><md-icon>menu</md-icon></md-button>
         <md-menu-content>
           <md-menu-item><router-link to="/recherche">Recherche</router-link></md-menu-item>
+          <md-menu-item><router-link to="/rechercheGenre">Recherche par genre</router-link></md-menu-item>
         </md-menu-content>
       </md-menu>
     </md-toolbar>

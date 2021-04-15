@@ -6,11 +6,11 @@
 </template>
 
 <style>
-  body{
+  body {
     background-image: url("cinema-4213751_1920.jpg");
     background-position: center;
   }
-  .sub{
+  .sub {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
